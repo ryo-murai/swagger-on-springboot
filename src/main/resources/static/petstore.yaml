@@ -43,6 +43,13 @@ paths:
     post:
       summary: Create a pet
       operationId: createPets
+      requestBody:
+        description: Pet object that needs to be added to the store
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Pet'
+        required: true
       tags:
         - pets
       responses:
