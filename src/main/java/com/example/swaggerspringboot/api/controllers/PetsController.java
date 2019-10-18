@@ -9,6 +9,8 @@ import javax.validation.Valid;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.util.LinkedMultiValueMap;
+import org.springframework.util.MultiValueMap;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.example.swaggerspringboot.api.models.Pet;
@@ -31,7 +33,10 @@ public class PetsController implements PetsApi {
 	@Override
 	public ResponseEntity<Void> createPets(@Valid Pet body) {
 		pets.add(body);
-		return new ResponseEntity<>(HttpStatus.CREATED);
+
+		MultiValueMap<String, String> headers = new LinkedMultiValueMap<>();
+		headers.add("Location", "/pets/" + body.getId());
+		return new ResponseEntity<>(headers, HttpStatus.CREATED);
 	}
 	
 	@Override
