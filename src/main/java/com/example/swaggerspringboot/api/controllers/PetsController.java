@@ -48,4 +48,12 @@ public class PetsController implements PetsApi {
 		return ResponseEntity.ok(response);
 	}
 	
+	@Override
+	public ResponseEntity<Pet> showPetById(String petId) {
+		return pets.stream()
+			.filter(p -> p.getId().toString().equals(petId))
+			.findFirst()
+			.map(ResponseEntity::ok)
+			.orElseGet(() -> new ResponseEntity<>(HttpStatus.NOT_FOUND));
+	}
 }
