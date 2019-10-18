@@ -1,0 +1,14 @@
+{
+    "groupId": "com.example",
+    "artifactId": "swagger-springboot",
+    "artifactVersion": "1.0.0",
+    "sourceFolder": "src/main/generated",
+    "interfaceOnly": true,
+    "generateApiTests": false,
+    "basePackage": "com.example.swaggerspringboot",
+    "configPackage": "com.example.swaggerspringboot.configs",
+    "apiPackage": "com.example.swaggerspringboot.api.controllers",
+    "modelPackage": "com.example.swaggerspringboot.api.models",
+    "java8": true,
+    "useOas2": false
+}
