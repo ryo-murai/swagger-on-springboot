@@ -47,13 +47,14 @@ public class PetsController implements PetsApi {
 		response.addAll(pets);
 		return ResponseEntity.ok(response);
 	}
-	
+
 	@Override
-	public ResponseEntity<Pet> showPetById(String petId) {
+	public ResponseEntity<Pet> showPetById(Long petId) {
 		return pets.stream()
-			.filter(p -> p.getId().toString().equals(petId))
+			.filter(p -> p.getId().equals(petId))
 			.findFirst()
 			.map(ResponseEntity::ok)
 			.orElseGet(() -> new ResponseEntity<>(HttpStatus.NOT_FOUND));
 	}
+
 }
